@@ -1,0 +1,15 @@
+{
+  "autoUpdatesChannel": "latest",
+  "permissions": {
+    "allow": [
+      "Bash(npm test:*)",
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  }
+}

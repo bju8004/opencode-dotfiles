@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "google_auth": false,
+  "agents": {
+    "oracle": { "model": "anthropic/claude-opus-4-5" },
+    "frontend-ui-ux-engineer": { "model": "google/antigravity-gemini-3-pro" },
+    "document-writer": { "model": "google/antigravity-gemini-3-flash" },
+    "multimodal-looker": { "model": "google/antigravity-gemini-3-flash" },
+    "librarian": { "model": "opencode/glm-4.7" },
+    "explore": { "model": "anthropic/claude-haiku-4-5" }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "google/antigravity-gemini-3-pro",
+      "default_skills": ["frontend-ui-ux", "playwright"]
+    },
+    "ultrabrain": {
+      "model": "opencode/gpt-5.2-codex",
+      "default_skills": ["test-driven-development", "systematic-debugging"]
+    },
+    "deep": {
+      "model": "opencode/gpt-5.2-codex",
+      "default_skills": ["systematic-debugging", "verification-before-completion"]
+    },
+    "quick": {
+      "model": "anthropic/claude-haiku-4-5",
+      "default_skills": ["git-master"]
+    }
+  },
+  "skill_triggers": {
+    "code_implementation": ["test-driven-development", "verification-before-completion"],
+    "debugging": ["systematic-debugging", "verification-before-completion"],
+    "new_feature": ["using-git-worktrees", "test-driven-development"],
+    "frontend": ["frontend-ui-ux", "playwright"],
+    "git_operations": ["git-master"]
+  }
+}
