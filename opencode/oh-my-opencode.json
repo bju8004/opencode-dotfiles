@@ -2,36 +2,123 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
   "agents": {
-    "oracle": { "model": "anthropic/claude-opus-4-5" },
-    "frontend-ui-ux-engineer": { "model": "google/antigravity-gemini-3-pro" },
-    "document-writer": { "model": "google/antigravity-gemini-3-flash" },
-    "multimodal-looker": { "model": "google/antigravity-gemini-3-flash" },
-    "librarian": { "model": "opencode/glm-4.7" },
-    "explore": { "model": "anthropic/claude-haiku-4-5" }
+    "oracle": {
+      "model": "opencode/gpt-5.2",
+      "variant": "high"
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "google/antigravity-gemini-3-pro",
+      "fallback": ["anthropic/claude-sonnet-4-5", "opencode/minimax-m2.5-free"]
+    },
+    "document-writer": {
+      "model": "google/antigravity-gemini-3-flash",
+      "fallback": ["opencode/kimi-k2.5-free", "anthropic/claude-haiku-4-5"]
+    },
+    "multimodal-looker": {
+      "model": "google/antigravity-gemini-3-pro",
+      "fallback": ["anthropic/claude-sonnet-4-5", "opencode/minimax-m2.5-free"]
+    },
+    "librarian": {
+      "model": "opencode/kimi-k2.5-free"
+    },
+    "explore": {
+      "model": "opencode/kimi-k2.5-free"
+    },
+    "sisyphus": {
+      "model": "anthropic/claude-opus-4-6",
+      "variant": "max"
+    },
+    "hephaestus": {
+      "model": "opencode/gpt-5.3-codex",
+      "variant": "medium"
+    },
+    "prometheus": {
+      "model": "anthropic/claude-opus-4-6",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "anthropic/claude-opus-4-6",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "opencode/gpt-5.2",
+      "variant": "medium"
+    },
+    "atlas": {
+      "model": "opencode/kimi-k2.5-free"
+    }
   },
   "categories": {
     "visual-engineering": {
       "model": "google/antigravity-gemini-3-pro",
-      "default_skills": ["frontend-ui-ux", "playwright"]
+      "fallback": ["anthropic/claude-sonnet-4-5", "opencode/minimax-m2.5-free"],
+      "default_skills": [
+        "frontend-ui-ux",
+        "playwright"
+      ]
     },
     "ultrabrain": {
-      "model": "opencode/gpt-5.2-codex",
-      "default_skills": ["test-driven-development", "systematic-debugging"]
+      "model": "opencode/gpt-5.3-codex",
+      "fallback": ["anthropic/claude-opus-4-6", "anthropic/claude-sonnet-4-5"],
+      "default_skills": [
+        "test-driven-development",
+        "systematic-debugging"
+      ],
+      "variant": "xhigh"
     },
     "deep": {
-      "model": "opencode/gpt-5.2-codex",
-      "default_skills": ["systematic-debugging", "verification-before-completion"]
+      "model": "opencode/gpt-5.3-codex",
+      "fallback": ["anthropic/claude-opus-4-6", "anthropic/claude-sonnet-4-5"],
+      "default_skills": [
+        "systematic-debugging",
+        "verification-before-completion"
+      ],
+      "variant": "medium"
     },
     "quick": {
-      "model": "anthropic/claude-haiku-4-5",
-      "default_skills": ["git-master"]
+      "model": "opencode/kimi-k2.5-free",
+      "default_skills": [
+        "git-master"
+      ]
+    },
+    "artistry": {
+      "model": "google/antigravity-gemini-3-pro",
+      "fallback": ["anthropic/claude-sonnet-4-5", "opencode/minimax-m2.5-free"],
+      "variant": "high"
+    },
+    "unspecified-low": {
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "unspecified-high": {
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "writing": {
+      "model": "google/antigravity-gemini-3-flash",
+      "fallback": ["opencode/kimi-k2.5-free", "anthropic/claude-haiku-4-5"]
     }
   },
   "skill_triggers": {
-    "code_implementation": ["test-driven-development", "verification-before-completion"],
-    "debugging": ["systematic-debugging", "verification-before-completion"],
-    "new_feature": ["using-git-worktrees", "test-driven-development"],
-    "frontend": ["frontend-ui-ux", "playwright"],
-    "git_operations": ["git-master"]
-  }
+    "code_implementation": [
+      "test-driven-development",
+      "verification-before-completion"
+    ],
+    "debugging": [
+      "systematic-debugging",
+      "verification-before-completion"
+    ],
+    "new_feature": [
+      "using-git-worktrees",
+      "test-driven-development"
+    ],
+    "frontend": [
+      "frontend-ui-ux",
+      "playwright"
+    ],
+    "git_operations": [
+      "git-master"
+    ]
+  },
+  "_migrations": [
+    "model-version:anthropic/claude-opus-4-5->anthropic/claude-opus-4-6"
+  ]
 }
